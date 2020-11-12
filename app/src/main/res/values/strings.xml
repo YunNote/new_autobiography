@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">뉴 자서전</string>
+    <string name="app_db">project.db</string>
+    <string name="user_info">USER_INFO</string>
+
+    <string name="invite_message"> 초대되었습니다. </string>
+    <string name="not_match_account">아이디 또는 비밀번호가 일치하지 않습니다.</string>
+
+    <string name="kakao_login">카카오 계정으로 로그인</string>
+    <string name="facebook_login">Facebook 계정으로 로그인</string>
+    <string name="instagram_login">인스타 계정으로 로그인</string>
+    <string name="naver_band_login">Band 계정으로 로그인</string>
+
+
+    <string name="my_page">마이페이지</string>
+    <string name="item_shop">아이템 shop</string>
+    <string name="silver_town">실버타운</string>
+    <string name="shop">shop</string>
+
+
+    <!-- keyword   -->
+    <string name="id">아이디</string>
+    <string name="password">비밀번호</string>
+    <string name="find_id">아이디 찾기</string>
+    <string name="find_password">비밀번호 찾기</string>
+    <string name="sign_up">회원가입</string>
+
+    <string name="hint_id">아이디를 입력하세요</string>
+    <string name="hint_password">비밀번호를 입력하세요</string>
+
+
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="search_options">
+        <item>전체</item>
+        <item>지역</item>
+    </string-array>
+
+    <string-array name="school">
+        <item>유한국민학교</item>
+        <item>대한국민학교</item>
+    </string-array>
+
+    <string-array name="school_category">
+        <item>가족</item>
+        <item>학창</item>
+        <item>친구</item>
+        <item>여행</item>
+    </string-array>
+
+</resources>

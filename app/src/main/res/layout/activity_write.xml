@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="write_layout"
+            type="com.example.study.WriteActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:context=".WriteActivity">
+
+        <LinearLayout
+            android:id="@+id/write_header"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/underline_sub"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="11dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="11dp"
+
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_close"
+                android:onClick="@{write_layout::finishActivity}"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="글쓰기"
+                android:textColor="#222222"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:gravity="center"
+                android:text="등록"
+                android:onClick="@{write_layout::finishActivity}"
+                android:textColor="#5d8fcf"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/writer_school"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline_sub"
+                        android:dropDownVerticalOffset="20dp"
+                        android:entries="@array/school"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:spinnerMode="dropdown"
+                        android:textColor="#333333"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/writer_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline_sub"
+                        android:dropDownVerticalOffset="20dp"
+                        android:entries="@array/school_category"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:spinnerMode="dropdown"
+                        android:textColor="#333333"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textColor="#333333"
+                    android:background="@drawable/underline_sub"
+                    android:textSize="14sp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.8"
+                        android:gravity="center|left"
+                        android:hint="제목을 입력하세요. "
+                        android:textColor="#cccccc"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        android:paddingRight="20dp"
+                        android:src="@drawable/ic_rock_active" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textColor="#333333"
+                    android:textSize="14sp">
+
+                    <EditText
+                        android:hint="내용을 입력하세요."
+                        android:id="@+id/EditText02"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|left"
+                        android:inputType="textMultiLine"
+                        android:lines="5"
+                        android:background="@null"
+                        android:scrollHorizontally="false" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#F0F0F0" />
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="normal"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:textSize="15sp"
+                        android:textColor="#111111"
+                        android:text="파일 첨부"
+                        />
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:id="@+id/image_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        app:flexWrap="wrap"
+                        app:alignItems="flex_start"
+                        app:alignContent="stretch"
+                        app:justifyContent="center"
+                        >
+
+
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/add_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="파일 추가하기"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="24dp"
+                        android:layout_marginTop="16dp"
+                        android:textColor="#666666"
+                        android:background="@drawable/social_login_button_radius"
+                        android:onClick="@{write_layout::selectPhoto}"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="#F0F0F0" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="normal"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:textSize="15sp"
+                        android:textColor="#111111"
+                        android:text="#태그"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/add_tag"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="normal"
+                            android:textSize="14sp"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
+                            android:textColor="#cccccc"
+                            android:hint="들옥하 #태그를 입력하세요."
+                            />
+
+
+                    </LinearLayout>
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:id="@+id/tag_list"
+                        android:layout_width="match_parent"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_height="wrap_content"
+                        app:flexWrap="wrap"
+                        app:alignItems="flex_start"
+                        app:alignContent="stretch"
+                        app:justifyContent="center">
+
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/update_cancel_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/cancel_seperator"
+                android:layout_weight="0.5"
+                android:textStyle="bold"
+                android:onClick="@{write_layout::finishActivity}"
+                android:text="취소"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/update_save_button"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/save_seperator"
+                android:onClick="@{write_layout::finishActivity}"
+                android:text="수정하기"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</layout>
