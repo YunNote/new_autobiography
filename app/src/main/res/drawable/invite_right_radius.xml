@@ -4,7 +4,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:bottom="-1dp"
-        android:left="-2dp"
+        android:left="-1dp"
         android:right="-1dp"
         android:top="-1dp">
         <shape xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,7 +12,7 @@
             <solid android:color="#ffffff" />
 
             <stroke
-                android:width="3dp"
+                android:width="2dp"
                 android:color="@color/invite_border" />
 
             <padding
@@ -21,9 +21,9 @@
                 android:right="1dp"
                 android:top="1dp" />
 
-            <corners
-                android:bottomRightRadius="10dp"
-                android:topRightRadius="10dp" />
+<!--            <corners-->
+<!--                android:bottomRightRadius="15dp"-->
+<!--                android:topRightRadius="15dp" />-->
         </shape>
 
     </item>

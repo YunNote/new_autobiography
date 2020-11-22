@@ -49,9 +49,12 @@
                 android:background="@drawable/social_login_button_radius"
                 android:layout_weight="0.7">
                 <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/search_keyword"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.8"
+                    android:maxLines="1"
+                    android:singleLine="true"
                     android:paddingLeft="10dp"
                     android:background="@null"
                     android:hint="검색"
@@ -64,6 +67,7 @@
                     android:layout_weight="0.2"
                     android:src="@drawable/search"
                     android:padding="10dp"
+                    android:onClick="@{silver_town_fragment_layout::findSilverTown}"
                     android:background="@color/white"
                     />
             </LinearLayout>
@@ -95,7 +99,7 @@
                 android:layout_toRightOf="@id/search_front"
                 android:gravity="center|left"
                 android:text="0"
-                android:textColor="@color/invite_button"
+                android:textColor="@color/app_main_color"
                 android:textStyle="bold" />
 
             <TextView

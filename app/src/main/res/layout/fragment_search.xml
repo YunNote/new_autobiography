@@ -36,6 +36,7 @@
                 android:background="@null"
                 android:hint="검색어를 입력하세요."
                 android:maxLines="1"
+                android:singleLine="true"
                 android:paddingLeft="14dp"
                 android:inputType="text"
                 android:paddingTop="16dp"
@@ -92,8 +93,8 @@
                         android:layout_height="match_parent"
                         android:layout_toRightOf="@id/search_front"
                         android:gravity="center|left"
+                        android:textColor="@color/app_main_color"
                         android:text="3"
-                        android:textColor="@color/invite_button"
                         android:textStyle="bold" />
 
                     <TextView
@@ -151,6 +152,7 @@
                                         android:layout_height="wrap_content"
                                         android:ellipsize="end"
                                         android:maxLines="2"
+
                                         android:text="국민학교 3학년 친구들과.. 우리의 추억이 너무 즐겁다. 유한국민학교에 다녔던 우리 친구들 잘 지내고 있는지 궁금하다. 다들 어떻게 지내고있니?"
                                         android:textColor="#666666"
                                         android:textSize="13sp"
@@ -293,8 +295,9 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/bottom_banner"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:background="@color/background"
+            android:adjustViewBounds="true"
             android:src="@drawable/img_banner"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

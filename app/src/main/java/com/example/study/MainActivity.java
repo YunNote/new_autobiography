@@ -40,6 +40,7 @@ import com.example.study.fragment.MainFragment;
 import com.example.study.fragment.MyPageFragment;
 import com.example.study.fragment.SearchFragment;
 import com.example.study.fragment.ShopFragment;
+import com.example.study.fragment.ShopWebViewFragment;
 import com.example.study.fragment.SilverTownFragment;
 import com.example.study.vo.AddressVO;
 import com.google.android.material.navigation.NavigationView;
@@ -85,6 +86,54 @@ public class MainActivity extends AppCompatActivity {
         View view = findViewById(R.id.custom_drawer_layout);
         LinearLayout familyFriend = view.findViewById(R.id.family_friend);
         LinearLayout familyFriendSubMenu = view.findViewById(R.id.family_friend_sub_menu);
+
+        view.findViewById(R.id.side_myprofile).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                transaction = fragmentManager.beginTransaction();
+                String fragmentTag = fragmentManager.getClass().getSimpleName();
+
+                getSupportFragmentManager().popBackStack(fragmentTag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                transaction.addToBackStack(fragmentTag);
+
+                binding.icUser.setImageResource(R.drawable.ic_user);
+                binding.iconNavCom.setImageResource(R.drawable.icon_nav_com);
+                binding.icTown.setImageResource(R.drawable.ic_town);
+                binding.icShopping.setImageResource(R.drawable.ic_shopping);
+
+                findViewById(R.id.drawer_button).setVisibility(View.VISIBLE);
+                findViewById(R.id.write_btn).setVisibility(View.VISIBLE);
+                findViewById(R.id.search_btn).setVisibility(View.VISIBLE);
+
+                binding.icUser.setImageResource(R.drawable.ic_user_select);
+                transaction.replace(R.id.frameLayout, new MyPageFragment()).commitAllowingStateLoss();
+                mDrawerLayout.closeDrawer(Gravity.LEFT);
+            }
+        });
+
+        view.findViewById(R.id.drawer_home).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                transaction = getSupportFragmentManager().beginTransaction();
+                String fragmentTag = fragmentManager.getClass().getSimpleName();
+
+                getSupportFragmentManager().popBackStack(fragmentTag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+                for(int i = 0; i < fragmentManager.getBackStackEntryCount(); ++i) {
+                    fragmentManager.popBackStack();
+                }
+
+                binding.icUser.setImageResource(R.drawable.ic_user);
+                binding.iconNavCom.setImageResource(R.drawable.icon_nav_com);
+                binding.icTown.setImageResource(R.drawable.ic_town);
+                binding.icShopping.setImageResource(R.drawable.ic_shopping);
+
+                transaction.replace(R.id.frameLayout, new MainFragment()).commitAllowingStateLoss();
+                mDrawerLayout.closeDrawer(Gravity.LEFT);
+            }
+        });
+
         view.findViewById(R.id.family_friend_invite).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -207,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.shop:
 
-                Toast.makeText(context, "준비중 입니다." , Toast.LENGTH_SHORT).show();
+                transaction.replace(R.id.frameLayout, new ShopWebViewFragment()).commitAllowingStateLoss();
                 //transaction.replace(R.id.frameLayout, new ShopFragment()).commitAllowingStateLoss();
                 break;
         }

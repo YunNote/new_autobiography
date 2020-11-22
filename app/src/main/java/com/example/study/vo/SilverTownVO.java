@@ -8,14 +8,16 @@ public class SilverTownVO {
     private String address;
     private String description;
     private String thumbnailUrl;
+    private String coord;
 
-    public SilverTownVO(long idx, String title, String number, String address, String description, String thumbnailUrl) {
+    public SilverTownVO(long idx, String title, String number, String address, String description, String thumbnailUrl, String coord) {
         this.idx = idx;
         this.title = title;
         this.number = number;
         this.address = address;
         this.description = description;
         this.thumbnailUrl = thumbnailUrl;
+        this.coord = coord;
     }
 
     public long getIdx() {
@@ -42,28 +44,8 @@ public class SilverTownVO {
         return thumbnailUrl;
     }
 
-    public void setIdx(long idx) {
-        this.idx = idx;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
+    public String getCoord() {
+        return coord;
     }
 
     @Override
@@ -75,6 +57,7 @@ public class SilverTownVO {
                 ", address='" + address + '\'' +
                 ", description='" + description + '\'' +
                 ", thumbnailUrl='" + thumbnailUrl + '\'' +
+                ", coord='" + coord + '\'' +
                 '}';
     }
 }

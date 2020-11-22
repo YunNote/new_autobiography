@@ -3,12 +3,15 @@ package com.example.study.fragment;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -45,29 +48,48 @@ public class SilverTownFragment extends Fragment {
     private Context context;
     private Gson gson;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         context = getContext();
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_silver_town, container, false);
+        binding.setSilverTownFragmentLayout(this);
         View root = binding.getRoot();
 
+        String keyHash = com.kakao.util.helper.Utility.getKeyHash(context /* context */);
+        Log.i("TTTTT :: " , keyHash);
 
-        TextView viewById = container.getRootView().findViewById(R.id.toolbar_title);
-        viewById.setText("실버타운");
+        TextView fragmentTitle = container.getRootView().findViewById(R.id.toolbar_title);
+        ImageView fragmentTitleImage = container.getRootView().findViewById(R.id.toolbar_title_image);
+        fragmentTitle.setText("실버타운");
+        fragmentTitle.setVisibility(View.VISIBLE);
+        fragmentTitleImage.setVisibility(View.GONE);
 
-        ActionBar actionBar = ((AppCompatActivity)context).getSupportActionBar();
+        ActionBar actionBar = ((AppCompatActivity) context).getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(false);
         container.getRootView().findViewById(R.id.write_btn).setVisibility(View.INVISIBLE);
         container.getRootView().findViewById(R.id.search_btn).setVisibility(View.INVISIBLE);
 
-        
+
+        binding.searchKeyword.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                //Enter key Action
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    findSilverTown(v);
+                }
+                return false;
+            }
+        });
+
+
         // 실버타운 리스트 그리기
         recyclerView = binding.silverTownRecyclerView;
         helper = new DataBaseHelper(context, getString(R.string.app_db), null, 1);
         sqlite = new SQLiteUtils(helper);
-        List<SilverTownVO> silverTown = sqlite.getSilverTown();
+        List<SilverTownVO> silverTown = sqlite.findSilverTownBySearchKeyword("");
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         silverTownListAdapter = new SilverTownListAdapter(context, silverTown);
@@ -82,4 +104,17 @@ public class SilverTownFragment extends Fragment {
 
         return root;
     }
+
+    public void findSilverTown(View v) {
+        String searchKeyword = binding.searchKeyword.getText().toString();
+
+        List<SilverTownVO> silverTownList = sqlite.findSilverTownBySearchKeyword(searchKeyword);
+
+        silverTownListAdapter = new SilverTownListAdapter(context, silverTownList);
+        silverTownListAdapter.notifyDataSetChanged();
+        binding.searchCount.setText(String.valueOf(silverTownListAdapter.getItemCount()));
+        recyclerView.setAdapter(silverTownListAdapter);
+    }
+
+
 }

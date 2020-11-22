@@ -51,14 +51,18 @@ public class LoginActivity extends AppCompatActivity {
 
         int writeExternalStorage = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int readExternalStorage = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE);
-        if (writeExternalStorage != PackageManager.PERMISSION_GRANTED || readExternalStorage != PackageManager.PERMISSION_GRANTED) {
+        int accessCoarseLocation = ContextCompat.checkSelfPermission(context , Manifest.permission.ACCESS_COARSE_LOCATION);
+        int accessFineLocation = ContextCompat.checkSelfPermission(context , Manifest.permission.ACCESS_FINE_LOCATION);
+
+        if (writeExternalStorage != PackageManager.PERMISSION_GRANTED || readExternalStorage != PackageManager.PERMISSION_GRANTED || accessCoarseLocation != PackageManager.PERMISSION_GRANTED ||
+                accessFineLocation != PackageManager.PERMISSION_GRANTED) {
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                 Toast.makeText(this, "Read/Write external storage", Toast.LENGTH_SHORT).show();
             } else {
                 ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
                         EXTERNAL_STORAGE_CODE);
             }
         } else {
@@ -141,11 +145,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public void loginEvent(View v) {
 
-        String inputUserId = binding.userId.getText().toString();
-        String inputUserPassword = binding.userPassword.getText().toString();
+//        String inputUserId = binding.userId.getText().toString();
+//        String inputUserPassword = binding.userPassword.getText().toString();
+        String inputUserId = "happy" ;
+        String inputUserPassword = "1234";
 
-//        if (checkLogin(inputUserId, inputUserPassword)) {
-        if (true) {
+        if (checkLogin(inputUserId, inputUserPassword)) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -194,7 +199,7 @@ public class LoginActivity extends AppCompatActivity {
         switch (requestCode) {
             case EXTERNAL_STORAGE_CODE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
-                        && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                        && grantResults[1] == PackageManager.PERMISSION_GRANTED && grantResults[2] == PackageManager.PERMISSION_GRANTED && grantResults[3] == PackageManager.PERMISSION_GRANTED) {
                     helper = new DataBaseHelper(LoginActivity.this, getString(R.string.app_db), null, 1);
                     sqlite = new SQLiteUtils(helper);
                 } else {

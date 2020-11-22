@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -73,7 +74,7 @@ public class SearchFragment extends Fragment {
                     int end = start + word.length();
 
                     if(start>0) {
-                        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#5d8fcf")), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#fb2855")), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                         text.setText(spannableString);
                     }
 
@@ -89,8 +90,10 @@ public class SearchFragment extends Fragment {
         container.getRootView().findViewById(R.id.write_btn).setVisibility(View.INVISIBLE);
         container.getRootView().findViewById(R.id.search_btn).setVisibility(View.INVISIBLE);
 
-        TextView viewById = container.getRootView().findViewById(R.id.toolbar_title);
-        viewById.setText("행복e조");
+        TextView fragmentTitle = container.getRootView().findViewById(R.id.toolbar_title);
+        ImageView fragmentTitleImage = container.getRootView().findViewById(R.id.toolbar_title_image);
+        fragmentTitle.setVisibility(View.GONE);
+        fragmentTitleImage.setVisibility(View.VISIBLE);
 
 
         binding.searchWord.setOnKeyListener(new View.OnKeyListener() {

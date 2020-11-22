@@ -64,9 +64,17 @@ public class SQLiteUtils {
         return user;
     }
 
-    public List<SilverTownVO> getSilverTown () {
+    public List<SilverTownVO> findSilverTownBySearchKeyword (String searchKeyword) {
         sqlite = helper.getReadableDatabase();
-        String selectSilverTown = "SELECT * FROM " + helper.SILVER_TABLE_NAME + ";";
+        String selectSilverTown = "SELECT * FROM " + helper.SILVER_TABLE_NAME + " ";
+
+        if(searchKeyword.length() > 0){
+            selectSilverTown = selectSilverTown + "WHERE " + helper.SILVER_ADDRESS + " LIKE '%" + searchKeyword + "%' ";
+        }
+
+        selectSilverTown += ";";
+
+
         Cursor cursor = sqlite.rawQuery(selectSilverTown, null);
         List<SilverTownVO> silverTownVOList = new ArrayList<>();
 
@@ -78,12 +86,14 @@ public class SQLiteUtils {
                     cursor.getString(2),
                     cursor.getString(3),
                     cursor.getString(4),
-                    cursor.getString(5)
+                    cursor.getString(5),
+                    cursor.getString(6)
             ));
         }
 
         return silverTownVOList;
     }
+
 
     public void close() {
         sqlite.close();

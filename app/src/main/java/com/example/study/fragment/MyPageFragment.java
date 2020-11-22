@@ -1,13 +1,16 @@
 package com.example.study.fragment;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
@@ -50,8 +53,11 @@ public class MyPageFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_mypage, container, false);
         View fragment = binding.getRoot();
 
-        TextView viewById = container.getRootView().findViewById(R.id.toolbar_title);
-        viewById.setText("마이페이지");
+        TextView fragmentTitle = container.getRootView().findViewById(R.id.toolbar_title);
+        ImageView fragmentTitleImage = container.getRootView().findViewById(R.id.toolbar_title_image);
+        fragmentTitle.setText("마이페이지");
+        fragmentTitle.setVisibility(View.VISIBLE);
+        fragmentTitleImage.setVisibility(View.GONE);
 
         helper = new DataBaseHelper(context, getString(R.string.app_db), null, 1);
         sqlite = new SQLiteUtils(helper);
@@ -80,11 +86,21 @@ public class MyPageFragment extends Fragment {
             }
         });
 
+//        binding.setNotification.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getContext(), "알림 설정이 되었습니다.", Toast.LENGTH_LONG).show();
+//            }
+//        });
+
         binding.inviteAllowed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 binding.inviteAllowed.setBackgroundResource(R.drawable.invite_left_radius_check);
+                binding.inviteAllowed.setTextColor(Color.parseColor("#fb2855"));
                 binding.inviteNotAllowed.setBackgroundResource(R.drawable.invite_right_radius);
+                binding.inviteNotAllowed.setTextColor(Color.parseColor("#666666"));
+
             }
         });
 
@@ -92,7 +108,33 @@ public class MyPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 binding.inviteAllowed.setBackgroundResource(R.drawable.invite_left_radius);
+                binding.inviteAllowed.setTextColor(Color.parseColor("#666666"));
                 binding.inviteNotAllowed.setBackgroundResource(R.drawable.invite_right_radius_check);
+                binding.inviteNotAllowed.setTextColor(Color.parseColor("#fb2855"));
+
+            }
+        });
+
+        binding.alarmAllowed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "알림 설정이 되었습니다.", Toast.LENGTH_SHORT).show();
+                binding.alarmAllowed.setBackgroundResource(R.drawable.invite_left_radius_check);
+                binding.alarmAllowed.setTextColor(Color.parseColor("#fb2855"));
+                binding.alarmNotAllowed.setBackgroundResource(R.drawable.invite_right_radius);
+                binding.alarmNotAllowed.setTextColor(Color.parseColor("#666666"));
+
+            }
+        });
+
+        binding.alarmNotAllowed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "알림 설정이 취소 되었습니다.", Toast.LENGTH_SHORT).show();
+                binding.alarmAllowed.setBackgroundResource(R.drawable.invite_left_radius);
+                binding.alarmAllowed.setTextColor(Color.parseColor("#666666"));
+                binding.alarmNotAllowed.setBackgroundResource(R.drawable.invite_right_radius_check);
+                binding.alarmNotAllowed.setTextColor(Color.parseColor("#fb2855"));
             }
         });
 

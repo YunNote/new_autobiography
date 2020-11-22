@@ -8,6 +8,7 @@ import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -51,8 +52,12 @@ public class InviteUserFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(inviteListAdapter);
 
-        TextView viewById = container.getRootView().findViewById(R.id.toolbar_title);
-        viewById.setText("초대하기");
+        TextView fragmentTitle = container.getRootView().findViewById(R.id.toolbar_title);
+        ImageView fragmentTitleImage = container.getRootView().findViewById(R.id.toolbar_title_image);
+        fragmentTitle.setText("초대하기");
+        fragmentTitle.setVisibility(View.VISIBLE);
+        fragmentTitleImage.setVisibility(View.GONE);
+
 
 //        getContacts();
 

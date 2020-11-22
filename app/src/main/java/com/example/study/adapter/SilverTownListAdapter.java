@@ -94,6 +94,7 @@ public class SilverTownListAdapter extends RecyclerView.Adapter<SilverTownListAd
                 bundle.putString("address", silverTown.getAddress());
                 bundle.putString("telNumber", silverTown.getNumber());
                 bundle.putString("description", silverTown.getDescription());
+                bundle.putString("coord", silverTown.getCoord());
                 silverTownDetailFragment.setArguments(bundle);
 
                 transaction.replace(R.id.frameLayout,silverTownDetailFragment ).commitAllowingStateLoss();

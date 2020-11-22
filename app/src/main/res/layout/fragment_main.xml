@@ -15,18 +15,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
             >
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/main_banner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/main_image_top"
-                app:layout_constraintBottom_toTopOf="@id/latest_update" />
+
+                android:adjustViewBounds="true"
+                android:src="@drawable/main_image_top" />
 
             <LinearLayout
                 android:id="@+id/latest_update"
@@ -57,33 +59,153 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
-                        <ImageView
-                            android:onClick="@{main_fragment_layout::contentDetail}"
-                            android:layout_width="156dp"
-                            android:layout_height="117dp"
-                            android:layout_marginRight="8dp"
-                            android:src="@drawable/dummy_update_thumb"
-                            />
 
-                        <ImageView
-                            android:layout_width="156dp"
-                            android:layout_height="117dp"
-                            android:src="@drawable/dummy_update_movie"
-                            android:layout_marginRight="8dp"
-                            />
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:elevation="10dp"
+                            >
 
-                        <ImageView
-                            android:layout_width="156dp"
-                            android:layout_height="117dp"
-                            android:src="@drawable/dummy_update_thumb"
-                            android:layout_marginRight="8dp"
-                            />
+                            <ImageView
+                                android:onClick="@{main_fragment_layout::familyContentDetail}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/recent_01"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
 
-                        <ImageView
-                            android:layout_width="156dp"
-                            android:layout_height="117dp"
-                            android:src="@drawable/dummy_update_movie"
-                            />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:elevation="10dp"
+                            >
+
+                            <ImageView
+                                android:onClick="@{main_fragment_layout::familyContentDetail}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/recent_02"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:elevation="10dp"
+                            >
+
+                            <ImageView
+                                android:onClick="@{main_fragment_layout::familyContentDetail}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/recent_03"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:elevation="10dp"
+                            >
+
+                            <ImageView
+                                android:onClick="@{main_fragment_layout::familyContentDetail}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/recent_04"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:elevation="10dp"
+                            >
+
+                            <ImageView
+                                android:onClick="@{main_fragment_layout::familyContentDetail}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/recent_05"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:elevation="10dp"
+                            >
+
+                            <ImageView
+                                android:onClick="@{main_fragment_layout::familyContentDetail}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/recent_06"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:elevation="10dp"
+                            >
+
+                            <ImageView
+                                android:onClick="@{main_fragment_layout::familyContentDetail}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/recent_07"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="140dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:elevation="10dp"
+                            >
+
+                            <ImageView
+                                android:onClick="@{main_fragment_layout::familyContentDetail}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/recent_08"
+                                android:scaleType="centerCrop"
+                                />
+                        </androidx.cardview.widget.CardView>
+
+
                     </LinearLayout>
                 </HorizontalScrollView>
             </LinearLayout>
@@ -93,6 +215,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginTop="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 app:layout_constraintTop_toBottomOf="@id/latest_update">
@@ -118,6 +241,7 @@
                         android:layout_weight="0.25"
                         android:gravity="center"
                         android:padding="5dp"
+                        android:onClick="@{main_fragment_layout::familyContentDetail}"
                         android:orientation="vertical">
 
                         <ImageView
@@ -162,6 +286,7 @@
 
 
                     <LinearLayout
+                        android:onClick="@{main_fragment_layout::friendContentDetail}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
@@ -210,21 +335,21 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/middle_banner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="24dp"
-                app:layout_constraintTop_toBottomOf="@id/category"
-                >
+                android:orientation="horizontal"
+
+                app:layout_constraintTop_toBottomOf="@id/category">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img_banner"
-                    />
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_banner" />
 
             </LinearLayout>
 
@@ -234,7 +359,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="24dp"
-                app:layout_constraintTop_toBottomOf="@id/middle_banner"
                 >
 
 
@@ -535,13 +659,8 @@
                         android:background="@drawable/right_border"
                         android:gravity="center"
                         />
-
-
-
-
                 </LinearLayout>
             </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </ScrollView>
 </layout>

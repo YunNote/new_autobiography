@@ -69,7 +69,6 @@ public class WriteActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     public void addTag() {

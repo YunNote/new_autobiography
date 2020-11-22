@@ -65,7 +65,7 @@
                 android:gravity="center"
                 android:text="등록"
                 android:onClick="@{write_layout::finishActivity}"
-                android:textColor="#5d8fcf"
+                android:textColor="@color/app_main_color"
                 android:textSize="14sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -326,7 +326,7 @@
                 android:textColor="@color/white"
                 android:background="@drawable/save_seperator"
                 android:onClick="@{write_layout::finishActivity}"
-                android:text="수정하기"
+                android:text="등록하기"
                 />
         </LinearLayout>
     </LinearLayout>

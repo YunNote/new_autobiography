@@ -7,23 +7,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="15dp"
         android:paddingLeft="15dp"
+        android:paddingTop="15dp"
         android:paddingRight="15dp"
         android:paddingBottom="10dp"
         android:weightSum="1">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.65"
+            android:layout_height="100dp"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="100dp"
                 android:layout_weight="0.3"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="0dp">
@@ -32,7 +31,8 @@
                     android:id="@+id/silver_town_thumbnail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/avatar" />
             </androidx.cardview.widget.CardView>
 
@@ -51,8 +51,9 @@
                     android:layout_weight="0.4"
                     android:gravity="center|left"
                     android:text="신목 의료원"
+                    android:textColor="#333333"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -103,7 +104,9 @@
                             android:layout_weight="0.2"
                             android:gravity="center|left"
                             android:text="연락처 : "
-                            android:textSize="13sp"/>
+                            android:textColor="#666666"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
 
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -125,9 +128,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_weight="0.3"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="1">
@@ -135,27 +137,32 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/silver_town_detail"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_weight="0.5"
                 android:background="@drawable/social_login_button_radius"
                 android:gravity="center"
-                android:textStyle="bold"
-                android:layout_marginRight="5dp"
+                android:paddingTop="11dp"
+                android:paddingBottom="11dp"
                 android:text="상세정보"
-                android:textSize="13sp" />
+                android:textColor="#666666"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/silver_town_reservation"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.5"
                 android:layout_marginLeft="5dp"
-                android:textStyle="bold"
+                android:layout_weight="0.5"
                 android:background="@drawable/login_button_radius"
                 android:gravity="center"
+                android:paddingTop="11dp"
+                android:paddingBottom="11dp"
                 android:text="예약하기"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
